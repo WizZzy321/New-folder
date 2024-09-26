@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!DOCTYPE html>
+<html>
+<head>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>GAURAV</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            
+            .order-form {
+                width: 80%;
+                margin: 40px auto;
+                text-align: center;
+                height: 100px;
+            }
+            
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            
+            th, td {
+                border: 1px solid #0b0a0a;
+                padding: 10px;
+                text-align: left;
+            }
+            
+            th {
+                background-color: #d82929;
+            }
+            
+            .price {
+                font-weight: bold;
+            }
+            
+            .quantity {
+                width: 50px;
+            }
+            
+            .order-button {
+                background-color: #4CAF50;
+                color: #f10808;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="order-form">
+            <img src="Screenshot 2024-09-26 102120.png" alt="" height="250">
+            <h2>Solti Cafe</h2>
+            <form>
+                <table>
+                    <tr>
+                        <th>Food Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Select</th>
+                    </tr>
+                    <tr>
+                        <td>Thakali khana</td>
+                        <td class="price">$12.99</td>
+                        <td><input type="number" class="quantity" id="burger-quantity" value="0"></td>
+                        <td><input type="checkbox" id="burger" name="burger"></td>
+                    </tr>
+                    <tr>
+                        <td>Sekwea</td>
+                        <td class="price">$14.99</td>
+                        <td><input type="number" class="quantity" id="pizza-quantity" value="0"></td>
+                        <td><input type="checkbox" id="pizza" name="pizza"></td>
+                    </tr>
+                    <tr>
+                        <td>Yamari</td>
+                        <td class="price">$8.99</td>
+                        <td><input type="number" class="quantity" id="salad-quantity" value="0"></td>
+                        <td><input type="checkbox" id="salad" name="salad"></td>
+                    </tr>
+                </table>
+                <br>
+                <label>Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label>Table Number:</label>
+                <input type="number" id="table-number" name="table-number"><br><br>
+                <button class="order-button">Place Order</button>
+            </form>
+        </div>
+        
+        <!-- Display total price -->
+        <p id="total-price"></p>
+        
+        <script>
+            // Calculate total price
+            const form = document.querySelector('form');
+            const burgerCheckbox = document.getElementById('burger');
+            const pizzaCheckbox = document.getElementById('pizza');
+            const saladCheckbox = document.getElementById('salad');
+            const burgerQuantity = document.getElementById('burger-quantity');
+            const pizzaQuantity = document.getElementById('pizza-quantity');
+            const saladQuantity = document.getElementById('salad-quantity');
+            
+            const burgerPrice = 12.99;
+            const pizzaPrice = 14.99;
+            const saladPrice = 8.99;
+            
+            form.addEventListener('change', () => {
+                let totalPrice = 0;
+                
+                if (burgerCheckbox.checked) {
+                    totalPrice += burgerPrice * parseInt(burgerQuantity.value);
+                }
+                
+                if (pizzaCheckbox.checked) {
+                    totalPrice += pizzaPrice * parseInt(pizzaQuantity.value);
+                }
+                
+                if (saladCheckbox.checked) {
+                    totalPrice += saladPrice * parseInt(saladQuantity.value);
+                }
+                
+                document.getElementById('total-price').innerText = `Total: $${totalPrice.toFixed(2)}`;
+            });
+        </script>
+    </body>
+    </html>
+    
+    
+    
+    
+   
+</body>
+</html>
